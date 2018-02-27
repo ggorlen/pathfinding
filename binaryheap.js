@@ -28,19 +28,19 @@ BinaryHeap.prototype = {
   },
   
   peek: function () {
-  	return this._data[1];
+    return this._data[1];
   },
 
   pop: function () {
     if (this.size() === 1) {
-    	return this._data.pop();
+      return this._data.pop();
     }
     
     else if (this.size() > 1) {
       const popped = this._data[1];
       this._data[1] = this._data.pop();
       this._sink(1);
-	    return popped;
+      return popped;
     }
   },
   
@@ -53,7 +53,7 @@ BinaryHeap.prototype = {
   },
 
   sort: function () {
-  	let i = this.size();
+    let i = this.size();
 
     while (i > 1) {
       this._swap(1, i);
@@ -62,17 +62,17 @@ BinaryHeap.prototype = {
     }
   },
   
-	toArray: function () {
-  	return this._data.slice(1);
+    toArray: function () {
+    return this._data.slice(1);
   },
   
   toString: function () {
-  	return this.toArray().toString();
+    return this.toArray().toString();
   },
 
   _bubble: function (i) {
     let parentIdx = i / 2 | 0;
-  	
+    
     while (parentIdx > 0 && 
       this.compare(this._data[i], this._data[parentIdx]) < 0) {
       this._swap(parentIdx, i);
